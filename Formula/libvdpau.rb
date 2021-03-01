@@ -31,4 +31,7 @@ class Libvdpau < Formula
       system "ninja", "install"
     end
   end
+  test do
+    system "echo", "0"
+  end
 end
