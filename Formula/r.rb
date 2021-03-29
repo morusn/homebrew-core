@@ -4,6 +4,7 @@ class R < Formula
   url "https://cran.r-project.org/src/base/R-4/R-4.0.4.tar.gz"
   sha256 "523f27d69744a08c8f0bd5e1e6c3d89a4db29ed983388ba70963a3cd3a4a802e"
   license "GPL-2.0-or-later"
+  revision 2
 
   livecheck do
     url "https://cran.rstudio.com/banner.shtml"
@@ -11,10 +12,10 @@ class R < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "850201a102aa7b0ae7865b32ed27b1f252e968d93aa663929abc475394a2d21b"
-    sha256 big_sur:       "1bf6b564592e5908384a43a78b8039a9077d2953cccb8ec7cff3aeb11961596f"
-    sha256 catalina:      "9ac4f83c55c651d5dfb22f1b9bca3f90ac60494b226a55bb74085a454dcd8027"
-    sha256 mojave:        "0a7797f9411a5339be8caf9e7efb0ceb283002916156e1f8a36b4ada02d60d4f"
+    sha256 arm64_big_sur: "2b851c986d4ef3a025712d812600d4181f689615e9c30d2cafc77b0197f10c68"
+    sha256 big_sur:       "95fb57f520dfa8cee05e57d84ab43c0e792798dbf44a568a53494ba08a069f54"
+    sha256 catalina:      "56cfae8e38488d4a13f86698a7ecc3751587f19d16a295c66ade02ef6d347871"
+    sha256 mojave:        "4fc98cea9026fb700f5c9c19a31bc75528165cf7daf5b0c64612cd31f03a5e91"
   end
 
   depends_on "pkg-config" => :build
@@ -46,7 +47,6 @@ class R < Formula
       "--with-aqua",
       "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
       "--enable-R-shlib",
-      "SED=/usr/bin/sed", # don't remember Homebrew's sed shim
       "--disable-java",
     ]
 

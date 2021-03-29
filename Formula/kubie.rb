@@ -1,8 +1,8 @@
 class Kubie < Formula
   desc "Much more powerful alternative to kubectx and kubens"
   homepage "https://blog.sbstp.ca/introducing-kubie/"
-  url "https://github.com/sbstp/kubie/archive/v0.13.2.tar.gz"
-  sha256 "b8ebf9d70a468e832e9d6a8bb9dedcff3933bf2626903ce7d586f6a9120cff54"
+  url "https://github.com/sbstp/kubie/archive/v0.14.0.tar.gz"
+  sha256 "c918e44e423ffbd68b72ea7c9af5002122229f66fb7551fc2d31012a39279fbe"
   license "Zlib"
 
   livecheck do
@@ -11,10 +11,10 @@ class Kubie < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7b6477c37aa2de3a9b9a07e78a024eab9b7aacad7444afef3f01b545e65434ef"
-    sha256 cellar: :any_skip_relocation, big_sur:       "4b31f56b71c5298a4ae0a5f733a70e9feea5f7bea4661000dabd09d0f8d0ca75"
-    sha256 cellar: :any_skip_relocation, catalina:      "527623fda0a5ab5b705088dda7b30df78f83ae9377e7a3a547d9135e7849475a"
-    sha256 cellar: :any_skip_relocation, mojave:        "6a935150ca688ee4fbfdf8be5b5f2984fb1772addacf7e9ee6cf5f11c4bb81c2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "124525ed806a18faf4847b5fd120520047616eae5130d61319d436faa7f0049a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "14e044b655c7d45fcaa1217b8a60bb02f07a73ae79ae031ed3e25170b2c4547f"
+    sha256 cellar: :any_skip_relocation, catalina:      "6d696e128bc60865c84076b612dbcf63ca15f0549e97277e3e27d2cc7a812ac2"
+    sha256 cellar: :any_skip_relocation, mojave:        "090a9a03a0c1947c57f932f586fd177a0e7b092cc09932c6b75dc6e07175fea2"
   end
 
   depends_on "rust" => :build

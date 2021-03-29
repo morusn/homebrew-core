@@ -1,11 +1,10 @@
 class ClojureLsp < Formula
   desc "Language Server (LSP) for Clojure"
   homepage "https://github.com/clojure-lsp/clojure-lsp"
-  # Switch to use git tag/revision as needed by `lein-git-version`
   url "https://github.com/clojure-lsp/clojure-lsp.git",
-      tag:      "2021.03.06-17.05.35",
-      revision: "fe2e44152b8d680e560e3c7a854621404f6ee2c8"
-  version "20210306T170535"
+      tag:      "2021.03.26-23.41.07",
+      revision: "b7813a289caaffa7299315d930f5d4ba73c7ed19"
+  version "20210326T234107"
   license "MIT"
   head "https://github.com/clojure-lsp/clojure-lsp.git"
 
@@ -19,21 +18,21 @@ class ClojureLsp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "217dbb83eb2ed497f23587a386a81c13c18cb2f1fe1f7e8c7497a0ec2fc6ad41"
-    sha256 cellar: :any_skip_relocation, big_sur:       "21fef943dd5730b001ac304dd8ea556527dcfd5214c2d92180c8ee7fa53f65d7"
-    sha256 cellar: :any_skip_relocation, catalina:      "607f844d979cb06a73fd36adefa215bb6144ed7849fa21c201a7cb81aaeaeb45"
-    sha256 cellar: :any_skip_relocation, mojave:        "45f6603e80b995a0ea41fd33276a98aff8295cbd4aa7f3ea6a641618e6780de7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1564663152ba8a030873adddbe9548e36c8c22723b6d44e36543b3b3ea237cb9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ec24a79f4c29ca353df1615a7f042bf7ddcf4de33b3913ad041271c3bd9dd9bc"
+    sha256 cellar: :any_skip_relocation, catalina:      "53abd2f5c98427585df1ebc603e37d333ba756329eace60cb76188e904eeeb43"
+    sha256 cellar: :any_skip_relocation, mojave:        "d198687afba609f0369e09289521a64bea1d0ba38a4a9306ec0de072d758ccd3"
   end
 
-  depends_on "leiningen" => :build
+  depends_on "clojure" => :build
   # The Java Runtime version only recognizes class file versions up to 52.0
   depends_on "openjdk@11"
 
   def install
-    system "lein", "uberjar"
-    jar = Dir["target/clojure-lsp-*-standalone.jar"][0]
+    system "clojure", "-X:prod-jar"
+    jar = "clojure-lsp.jar"
     libexec.install jar
-    bin.write_jar_script libexec/File.basename(jar), "clojure-lsp", java_version: "11"
+    bin.write_jar_script libexec/jar, "clojure-lsp", java_version: "11"
   end
 
   test do

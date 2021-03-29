@@ -1,15 +1,15 @@
 class Xtensor < Formula
   desc "Multi-dimensional arrays with broadcasting and lazy computing"
   homepage "https://xtensor.readthedocs.io/en/latest/"
-  url "https://github.com/QuantStack/xtensor/archive/0.23.1.tar.gz"
-  sha256 "b9bceea49db240ab64eede3776d0103bb0503d9d1f3ce5b90b0f06a0d8ac5f08"
+  url "https://github.com/QuantStack/xtensor/archive/0.23.4.tar.gz"
+  sha256 "c8377f8ec995762c89dea2fdf4ac06b53ba491a6f0df3421c4719355e42425d2"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9d640c7bf1f02fc233313aeba9eb5b60d168dc2ee9858f79f563397a777f7230"
-    sha256 cellar: :any_skip_relocation, big_sur:       "96aba4540d00b3f4b980cf3aceb97469c1a6fafbe524c295d009ae31da2d9097"
-    sha256 cellar: :any_skip_relocation, catalina:      "79b45fb93359f9ecd3f3f1db535d0727c514962494b99b4a81c28e747ac87107"
-    sha256 cellar: :any_skip_relocation, mojave:        "537ca6fd32dc25862fb759cd2c2003146c64cd5bdac0657dd6566eda776907be"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "24812099320c70245b72bf8fe3037ff4bf09e89e2ad5d4175f8df01ebc2333dd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2efff1531132e26e1c90e8f4045fb00f309b2c76e0f1eaef3f2ed4653e15421b"
+    sha256 cellar: :any_skip_relocation, catalina:      "8d262e5167037efa8f018225a9cd8bf57c2c9cfa3fd10338ff2aaf8813217eff"
+    sha256 cellar: :any_skip_relocation, mojave:        "16150b10735944a9da90e827ebfebb41ed31633cdd95cf1514966b342600dafe"
   end
 
   depends_on "cmake" => :build

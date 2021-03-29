@@ -3,28 +3,28 @@ class Localstack < Formula
 
   desc "Fully functional local AWS cloud stack"
   homepage "https://github.com/localstack/localstack"
-  url "https://files.pythonhosted.org/packages/07/e8/5a5b7bc7e9da92aea048f414b245877053a82e2cb15f21c12b4d549d2cec/localstack-0.12.7.tar.gz"
-  sha256 "6ff6f10338d47cf06bb8ff540133f9d1026fc11c7ce2f595d2820c6c8f1d932c"
+  url "https://files.pythonhosted.org/packages/99/43/a18a93a746940067067301ef99c71b2c34e65d2d1cf1aac190b93b79a48e/localstack-0.12.9.tar.gz"
+  sha256 "6bd6b94cf29158ebbd02a58096e9dc42bf0dec8a36f81d77635ac5c5f4ad1408"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e636bd22526ed36e8e563a1a75d16fc5b9e954b1a6a882e401ae4aa1b07b0026"
-    sha256 cellar: :any_skip_relocation, big_sur:       "916346de0868f3194c0352f336768c3654cf6d4a25afff614b8234f19957ad42"
-    sha256 cellar: :any_skip_relocation, catalina:      "66eb4850e657abae010578518d67a5fdbedbe4479845c1ae9838cfd9b93919ba"
-    sha256 cellar: :any_skip_relocation, mojave:        "dfa77e9c7f0b4c6791741286ea6b14a2a6a3a6e8e93e0451eb90185e2f9f0c98"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e17fe54a393069e72d53f84c16f762bfe53dfe5597529afa40ea0586470a84f0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "39a44bef5e40bce5bb3147f3f76e463b757775c6fc48e7d2f26c72afe8386967"
+    sha256 cellar: :any_skip_relocation, catalina:      "f0929b72baed48033e265ff6187e0034800e748e11619b76d6829103cb8cb905"
+    sha256 cellar: :any_skip_relocation, mojave:        "3c377a6dfa76a3da40522726efe4053b5e15f480c81a7b0fe8ba72f5ee4ea205"
   end
 
   depends_on "docker" => :test
   depends_on "python@3.9"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/ef/30/49d4d95b0b9bfbabc874bac012f0d5e51f4686c23678d75d5bebf37eedf8/boto3-1.17.28.tar.gz"
-    sha256 "ba13bda83ca1a26469fdf5130bb7a8f671dd807d0551e3242cafc8c44caab057"
+    url "https://files.pythonhosted.org/packages/03/e1/8a4e2ed00dbbeec3cd69ac8a91ce4183c278ecd3ce3c80322212afb9de95/boto3-1.17.39.tar.gz"
+    sha256 "b5814ff73b5b8fc8601c1b73b70675807f9ce64713562e183a08415a2516eed4"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/fd/c4/6e706aabe97689e4ecd6337df2f014cb05b90737d0292d9e50593d3df8d9/botocore-1.20.28.tar.gz"
-    sha256 "6dde07154c37b552f52cbf8041541c5460a29d916f527b2098a36d44496c7126"
+    url "https://files.pythonhosted.org/packages/9a/93/86694d0bd25bea4a2dc0f7e672036fe13c1dd1f9cde1bd3ff66f3dc74d6e/botocore-1.20.39.tar.gz"
+    sha256 "28506d23ffa9abf5666c2c909c7edc83a1112cd44fe74eb1a4960df561531e98"
   end
 
   resource "certifi" do
@@ -52,6 +52,11 @@ class Localstack < Formula
     sha256 "49b3a825280bd66b3aa83585ef59c4a8c82f2c8a522dbe754a8bc8d08c85c491"
   end
 
+  resource "dulwich" do
+    url "https://files.pythonhosted.org/packages/31/02/791c17b92e6d04c43f9b318c95a3f3c3e1ea718aa72ad95b9dac147895fa/dulwich-0.20.21.tar.gz"
+    sha256 "ac764c9a9b80fa61afe3404d5270c5060aa57f7f087b11a95395d3b76f3b71fd"
+  end
+
   resource "idna" do
     url "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz"
     sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
@@ -68,8 +73,8 @@ class Localstack < Formula
   end
 
   resource "localstack-ext" do
-    url "https://files.pythonhosted.org/packages/00/f4/7c358f1442ad95b67884b5d191487887451b88265390700f0c587c6151c8/localstack-ext-0.12.5.30.tar.gz"
-    sha256 "27b0a5217ceba68240af758f6bc7899d03f20ef0b9f85fae3248a56cc7847991"
+    url "https://files.pythonhosted.org/packages/77/93/b53378f13410694311a0e81ad459fff88978eacc79d5f6dc626545dc2aed/localstack-ext-0.12.6.4.tar.gz"
+    sha256 "fe3e0f239e610a278666592c9bb580788f2460854fa732b994dff351d9775d1e"
   end
 
   resource "pyaes" do
@@ -82,14 +87,19 @@ class Localstack < Formula
     sha256 "73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"
   end
 
+  resource "PyYAML" do
+    url "https://files.pythonhosted.org/packages/9f/2c/9417b5c774792634834e730932745bc09a7d36754ca00acf1ccd1ac2594d/PyYAML-5.1.tar.gz"
+    sha256 "436bc774ecf7c103814098159fbb84c2715d25980175292c648f2da143909f95"
+  end
+
   resource "requests" do
     url "https://files.pythonhosted.org/packages/6b/47/c14abc08432ab22dc18b9892252efaf005ab44066de871e72a38d6af464b/requests-2.25.1.tar.gz"
     sha256 "27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/08/e1/3ee2096ebaeeb8c186d20ed16c8faf4a503913e5c9a0e14cd6b8ffc405a3/s3transfer-0.3.4.tar.gz"
-    sha256 "7fdddb4f22275cf1d32129e21f056337fd2a80b6ccef1664528145b72c49e6d2"
+    url "https://files.pythonhosted.org/packages/0f/c2/266326b601256b5722aea10961504857f324cd50f4adc66a2f573fbea017/s3transfer-0.3.6.tar.gz"
+    sha256 "c5dadf598762899d8cfaecf68eba649cd25b0ce93b6c954b156aaa3eed160547"
   end
 
   resource "six" do

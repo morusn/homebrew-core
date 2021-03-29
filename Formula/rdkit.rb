@@ -1,16 +1,16 @@
 class Rdkit < Formula
-  desc "Interpreted, interactive, object-oriented programming language"
+  desc "Open-source chemoinformatics library"
   homepage "https://rdkit.org/"
-  url "https://github.com/rdkit/rdkit/archive/Release_2020_09_5.tar.gz"
-  sha256 "85cec9618e7ef6365b9b908ed674c073d898b6627521cc7fd8c2e05fea8a5def"
+  url "https://github.com/rdkit/rdkit/archive/Release_2021_03_1.tar.gz"
+  sha256 "9495f797a54ac70b3b6e12776de7d82acd7f7b5d5f0cc1f168c763215545610b"
   license "BSD-3-Clause"
   head "https://github.com/rdkit/rdkit.git"
 
   bottle do
-    sha256 arm64_big_sur: "15c4901321cbac4403a635b34951b561ac89dfbf042a938ecf34de9b0a88ed76"
-    sha256 big_sur:       "4f294a38e82fd6935e34afcd91cfea1866efd4c2da26cb5348edeb325a64b6f0"
-    sha256 catalina:      "a0b671abaead16cda99e30d9a490894c2ef3dd19a1233a18d40c04a34c6c0772"
-    sha256 mojave:        "f6bbf7d54231caa43b0161109fef2a62a5cad30da94932f04bd11450a44303fc"
+    sha256 arm64_big_sur: "b3c25f8041b97feb1d44b0881ade496bc030ef7cd7bb472b0e5f2f3ed15c70e5"
+    sha256 big_sur:       "b858bd08a423315f15f0e261730488fe1e303734ab07cc8ca31d9dfb10272f6d"
+    sha256 catalina:      "a809feb8d0cff4c9c1a357d7e434de5cefc42e254ea47d65079e6c72d4322ad8"
+    sha256 mojave:        "e5aaf566b2d5a33553bc626eb99e785da5359a1e803d3abbeb86501804f9ffb7"
   end
 
   depends_on "cmake" => :build
@@ -34,7 +34,11 @@ class Rdkit < Formula
     python_executable = Formula["python@3.9"].opt_bin/"python3"
     py3ver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     py3prefix = Formula["python@3.9"].opt_frameworks/"Python.framework/Versions/#{py3ver}"
+    on_linux do
+      py3prefix = Formula["python@3.9"].opt_prefix
+    end
     py3include = "#{py3prefix}/include/python#{py3ver}"
+    numpy_include = Formula["numpy"].opt_lib/"python#{py3ver}/site-packages/numpy/core/include"
 
     # set -DMAEPARSER and COORDGEN_FORCE_BUILD=ON to avoid conflicts with some formulae i.e. open-babel
     args = std_cmake_args + %W[
@@ -55,6 +59,7 @@ class Rdkit < Formula
       -DBoost_NO_BOOST_CMAKE=ON
       -DPYTHON_INCLUDE_DIR=#{py3include}
       -DPYTHON_EXECUTABLE=#{python_executable}
+      -DPYTHON_NUMPY_INCLUDE_PATH=#{numpy_include}
     ]
 
     system "cmake", ".", *args

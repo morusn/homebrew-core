@@ -2,17 +2,16 @@ class K9s < Formula
   desc "Kubernetes CLI To Manage Your Clusters In Style!"
   homepage "https://k9scli.io/"
   url "https://github.com/derailed/k9s.git",
-      tag:      "v0.24.2",
-      revision: "f929114ae4679c89ca06b2833d8a0fca5f1ec69d"
+      tag:      "v0.24.6",
+      revision: "0b965ebf4b1d871fd6486d6176839afff61e7104"
   license "Apache-2.0"
   head "https://github.com/derailed/k9s.git"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4b97e560c2791134ed747798643bc013b6714b4d8470cee0b353c9460c305918"
-    sha256 cellar: :any_skip_relocation, big_sur:       "f1abfe7adcb179fae34191080e448524b45f94ee23d602bcc3c045e119731451"
-    sha256 cellar: :any_skip_relocation, catalina:      "de85ed24992be74b62bb7ba5c1585d8cf486b1c89f517f2934e207bfcd2a6f56"
-    sha256 cellar: :any_skip_relocation, mojave:        "bd05c90c7a7cd58cf29419c0562b2e08213fe528b9e6af99e8ab40201f1a2cc4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "56a22471606a3514eb4f65a23492f199e3876459da202811016f7e59c1ee66e0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "872f1f83bbc5e51247f28393c26b1f8d7774e8a4086855736810076c17398f23"
+    sha256 cellar: :any_skip_relocation, catalina:      "af37a22da0b088ed01df459e3dcd2ef4b952eb0998132ae8fad75b2367b8a191"
+    sha256 cellar: :any_skip_relocation, mojave:        "06b633993e49dea023f1904d6ac5dc22e702b9376914aba6861feb87e702cc09"
   end
 
   depends_on "go" => :build

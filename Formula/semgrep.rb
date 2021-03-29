@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.42.0",
-      revision: "f82dbfd0fa0d82b7db264180a3a09be4ad7522b5"
+      tag:      "v0.44.0",
+      revision: "0e901d43d6457f6c988dd00487abb83522b25ad3"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -15,9 +15,10 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "d25e76dc4c537c99e5653c27b6e28e1a8f21ef46370db11ace061fd556f5ef20"
-    sha256 cellar: :any, catalina: "ef395b54dca1954eddd823799c5d38224b32a2cf666fac6e687ef34752015aa8"
-    sha256 cellar: :any, mojave:   "a1f9b8056f0ad8f14f0e227fa5657c42a3c7f789244cf8f9b0d012098dcef910"
+    sha256 cellar: :any, arm64_big_sur: "dfc77ddb3f23183a7a19bd744c599dfb4f02b049a3d275715788fb1b84d971cd"
+    sha256 cellar: :any, big_sur:       "0f8d19144263ae5ff2231f4d89c89cfa0e46f1cb07bce4644e756c5c032731fd"
+    sha256 cellar: :any, catalina:      "f6c12cc7f047e514593e8c463664f23dd84968d1da60fc06440a03caa3bdf3dd"
+    sha256 cellar: :any, mojave:        "1df3c76a8b14660b3dd9d0bb512b2be5cf6e29acc72736c52942a233f9198c37"
   end
 
   depends_on "cmake" => :build
@@ -96,13 +97,13 @@ class Semgrep < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/af/34/0fb7d9ce9f84244618e0acf8355f944e27107d617534e07978cb2221a59b/tqdm-4.57.0.tar.gz"
-    sha256 "65185676e9fdf20d154cffd1c5de8e39ef9696ff7e59fe0156b1b08e468736af"
+    url "https://files.pythonhosted.org/packages/ef/58/60cc1e9af5714d1b86062f6dc00c5dd6973c902da6259f930b9c6e7a3430/tqdm-4.59.0.tar.gz"
+    sha256 "d666ae29164da3e517fcf125e41d4fe96e5bb375cd87ff9763f6b38b5592fe33"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz"
-    sha256 "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
+    url "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz"
+    sha256 "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
   end
 
   def install
@@ -127,7 +128,7 @@ class Semgrep < Formula
       ENV["PREFIX"] = prefix
 
       system "opam", "init", "--no-setup", "--disable-sandboxing"
-      ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.4.10.0" }
+      ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.4.10.2" }
 
       system "opam", "exec", "--", "make", "setup"
 
@@ -153,7 +154,7 @@ class Semgrep < Formula
         system "opam", "install", "--deps-only", "-y", "."
         system "opam", "exec", "--", "make", "all"
         system "opam", "exec", "--", "make", "install"
-        bin.install "_build/default/cli/Main.exe" => "semgrep-core"
+        bin.install "_build/install/default/bin/semgrep-core" => "semgrep-core"
       end
     end
 

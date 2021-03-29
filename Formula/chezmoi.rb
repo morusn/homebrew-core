@@ -2,16 +2,16 @@ class Chezmoi < Formula
   desc "Manage your dotfiles across multiple diverse machines, securely"
   homepage "https://chezmoi.io/"
   url "https://github.com/twpayne/chezmoi.git",
-      tag:      "v1.8.11",
-      revision: "2e5a76c23de034344f7a9fa89cd3088cd9b52ac7"
+      tag:      "v2.0.4",
+      revision: "9cc8184cc466a87c44006218e02365046e5d5f8b"
   license "MIT"
   head "https://github.com/twpayne/chezmoi.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "da785c92f04a6ba090a3709cbb92316afc5d5e5d7fd377bece70719b6d368b09"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9077a166a9b2b076840153f8a390489b44e213c62bec1f9f8961fa52ad558bfa"
-    sha256 cellar: :any_skip_relocation, catalina:      "ef947be4d77e99f13f24d04a39f57b7145e0669e4151e0592056ce5250ab209c"
-    sha256 cellar: :any_skip_relocation, mojave:        "27a39abe15552641b151583fc6e46241f366750a68527d37a4e38a85d2b24e10"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5d79a5ed39afd03118d039948779fcf0f2dc4ab134e3dcaa76d548b73cb4a52b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5da554c6fc3287ff248034b27a03f56fe8ab6dae1d7c92b9858bc8ae8d1cfb57"
+    sha256 cellar: :any_skip_relocation, catalina:      "777949f256f4f734c4fb4dccb1b19590830a6995f41086264ed50ef3626ffcfc"
+    sha256 cellar: :any_skip_relocation, mojave:        "6f4f9f97d6dbc588de6ed7d35821f092b749f69ccbe814f9b1bc5bec1edaade4"
   end
 
   depends_on "go" => :build
@@ -35,7 +35,7 @@ class Chezmoi < Formula
 
   test do
     # test version to ensure that version number is embedded in binary
-    assert_match "version #{version}", shell_output("#{bin}/chezmoi --version")
+    assert_match "version v#{version}", shell_output("#{bin}/chezmoi --version")
     assert_match "built by homebrew", shell_output("#{bin}/chezmoi --version")
 
     system "#{bin}/chezmoi", "init"
